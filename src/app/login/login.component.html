@@ -1,7 +1,38 @@
-<small *ngIf="invalidLogin">Invalid credentials</small>
-<div>
-  Username:<input type="text" name="username" [(ngModel)]="username" /><br />
-  Password:<input type="password" name="password" [(ngModel)]="password" />
+<div class="container col-md-6">
+  <h1 class="display-6">Login</h1>
 
-  <button (click)="onClick()">Login</button>
+  <form>
+    <div class="form-group">
+      <label for="email">Email address</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        aria-describedby="emailHelp"
+        placeholder="Enter email"
+        name="username"
+        [(ngModel)]="username"
+      />
+      <small id="emailHelp" class="form-text text-muted"
+        >We'll never share your email with anyone else.</small
+      >
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        placeholder="Password"
+        name="password"
+        [(ngModel)]="password"
+      />
+    </div>
+    <button type="submit" (click)="onClick()" class="btn btn-success">
+      Submit
+    </button>
+    <div *ngIf="invalidLogin" class="alert alert-danger mt-6">
+      Invalid credentials
+    </div>
+  </form>
 </div>
